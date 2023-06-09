@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
-require("dotenv").config();
+//require("dotenv").config();
 //import "dotenv/config";
 
 console.log(process.env);
@@ -17,13 +17,13 @@ function App() {
     if (event.key === "Enter") {
       axios
         .get(url)
-
         .then((response) => {
           setData(response.data);
           console.log(response.data);
         })
         .catch((error) => {
           console.log(error);
+          alert("Enter a valid Location");
         });
       setLocation("");
     }
@@ -56,7 +56,7 @@ function App() {
           </div>
         </div>
 
-        {data.name != undefined && (
+        {data.name !== undefined && (
           <div className="bottom">
             <div className="feels-like">
               {data.main ? (
